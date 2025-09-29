@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres_next
+    environment:
+      POSTGRES_USER: next
+      POSTGRES_PASSWORD: next
+      POSTGRES_DB: next
+    ports:
+      - "5432:5432"
