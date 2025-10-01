@@ -8,6 +8,13 @@
       "when": 1759144473918,
       "tag": "0000_loving_kang",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1759310493239,
+      "tag": "0001_green_squadron_sinister",
+      "breakpoints": true
     }
   ]
 }
