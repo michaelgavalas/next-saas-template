@@ -15,6 +15,13 @@
       "when": 1759310493239,
       "tag": "0001_green_squadron_sinister",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1759350620756,
+      "tag": "0002_jazzy_wrecker",
+      "breakpoints": true
     }
   ]
 }

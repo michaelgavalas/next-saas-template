@@ -1,18 +1,37 @@
-import { RiGoogleFill, RiMicrosoftFill, RiDropboxFill, RiMailLine, RiLock2Line, RiUser3Line } from "@remixicon/react";
+"use client";
+
+import {
+  RiGoogleFill,
+  RiMicrosoftFill,
+  RiDropboxFill,
+  RiLock2Line,
+  RiUser3Line,
+} from "@remixicon/react";
+import { authClient } from "@/auth/client";
 
 export default function SignIn() {
+  const signInGoogle = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+      callbackURL: "/d",
+    });
+  };
+
   return (
     <div className="min-h-screen w-full bg-gray-50 flex items-center justify-center p-6">
       <div className="w-full max-w-md">
         <div className="bg-white shadow-sm rounded-2xl p-6 sm:p-8">
           <div className="mb-6 text-center">
             <h1 className="text-2xl font-semibold tracking-tight">Sign in</h1>
-            <p className="text-sm text-gray-500 mt-1">Welcome back. Choose a method below.</p>
+            <p className="text-sm text-gray-500 mt-1">
+              Welcome back. Choose a method below.
+            </p>
           </div>
 
           {/* OAuth Providers */}
           <div className="grid grid-cols-1 gap-3">
             <button
+              onClick={async () => await signInGoogle()}
               type="button"
               className="w-full inline-flex items-center justify-center gap-2 border rounded-xl px-4 py-2.5 hover:bg-gray-50 active:scale-[.99] transition"
             >
@@ -24,7 +43,9 @@ export default function SignIn() {
               className="w-full inline-flex items-center justify-center gap-2 border rounded-xl px-4 py-2.5 hover:bg-gray-50 active:scale-[.99] transition"
             >
               <RiMicrosoftFill className="h-5 w-5" />
-              <span className="text-sm font-medium">Continue with Microsoft</span>
+              <span className="text-sm font-medium">
+                Continue with Microsoft
+              </span>
             </button>
             <button
               type="button"
@@ -48,7 +69,9 @@ export default function SignIn() {
           {/* Email / Username + Password */}
           <form className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Email or Username</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Email or Username
+              </label>
               <div className="relative">
                 <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <RiUser3Line className="h-5 w-5 text-gray-400" />
@@ -63,7 +86,9 @@ export default function SignIn() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Password
+              </label>
               <div className="relative">
                 <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <RiLock2Line className="h-5 w-5 text-gray-400" />
@@ -81,7 +106,12 @@ export default function SignIn() {
                 <input type="checkbox" className="rounded border-gray-300" />
                 Remember me
               </label>
-              <a href="#" className="text-sm font-medium text-gray-600 hover:text-gray-900">Forgot password?</a>
+              <a
+                href="#"
+                className="text-sm font-medium text-gray-600 hover:text-gray-900"
+              >
+                Forgot password?
+              </a>
             </div>
 
             <button
@@ -94,11 +124,19 @@ export default function SignIn() {
 
           {/* Footer */}
           <p className="mt-6 text-center text-sm text-gray-500">
-            Don&apos;t have an account? <a href="#" className="font-medium text-gray-700 hover:text-gray-900">Sign up</a>
+            Don&apos;t have an account?{" "}
+            <a
+              href="#"
+              className="font-medium text-gray-700 hover:text-gray-900"
+            >
+              Sign up
+            </a>
           </p>
         </div>
 
-        <p className="text-xs text-center text-gray-400 mt-4">UI-only demo — wire up your auth of choice.</p>
+        <p className="text-xs text-center text-gray-400 mt-4">
+          UI-only demo — wire up your auth of choice.
+        </p>
       </div>
     </div>
   );
