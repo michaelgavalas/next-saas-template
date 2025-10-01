@@ -10,13 +10,13 @@ export async function middleware(request: NextRequest) {
   });
 
   // 1) /c* requires auth → redirect to /sign-in if missing session
-  if (pathname.startsWith("/c") && !session) {
+  if (pathname.startsWith("/d") && !session) {
     return NextResponse.redirect(new URL("/sign-in", request.url));
   }
 
   // 2) /sign-in or /sign-up with session → redirect to /c
   if ((pathname === "/sign-in" || pathname === "/sign-up") && session) {
-    return NextResponse.redirect(new URL("/c", request.url));
+    return NextResponse.redirect(new URL("/d", request.url));
   }
 
   return NextResponse.next();
