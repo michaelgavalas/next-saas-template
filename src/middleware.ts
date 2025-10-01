@@ -25,5 +25,5 @@ export async function middleware(request: NextRequest) {
 // Only run where it matters
 export const config = {
   runtime: "nodejs",
-  matcher: ["/c/:path*", "/sign-in", "/sign-up"],
+  matcher: ["/d/:path*", "/sign-in", "/sign-up"],
 };
