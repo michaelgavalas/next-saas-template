@@ -25,6 +25,17 @@ export const auth = betterAuth({
       accessType: "offline",
       prompt: "select_account consent",
     },
+    microsoft: {
+      clientId: process.env.MICROSOFT_CLIENT_ID as string,
+      clientSecret: process.env.MICROSOFT_CLIENT_SECRET as string,
+      // Optional
+      tenantId: "common",
+      prompt: "select_account", // Forces account selection
+    },
+    dropbox: {
+      clientId: process.env.DROPBOX_CLIENT_ID as string,
+      clientSecret: process.env.DROPBOX_CLIENT_SECRET as string,
+    },
   },
   appName: "SaaS",
   plugins: [nextCookies(), twoFactor(), organization()],

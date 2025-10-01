@@ -17,6 +17,20 @@ export default function SignIn() {
     });
   };
 
+  const signInMicrosoft = async () => {
+    const data = await authClient.signIn.social({
+      provider: "microsoft",
+      callbackURL: "/d",
+    });
+  };
+
+  const signInDropbox = async () => {
+    const data = await authClient.signIn.social({
+      provider: "dropbox",
+      callbackURL: "/d",
+    });
+  };
+
   return (
     <div className="min-h-screen w-full bg-gray-50 flex items-center justify-center p-6">
       <div className="w-full max-w-md">
@@ -38,7 +52,9 @@ export default function SignIn() {
               <RiGoogleFill className="h-5 w-5" />
               <span className="text-sm font-medium">Continue with Google</span>
             </button>
+
             <button
+              onClick={async () => await signInMicrosoft()}
               type="button"
               className="w-full inline-flex items-center justify-center gap-2 border rounded-xl px-4 py-2.5 hover:bg-gray-50 active:scale-[.99] transition"
             >
@@ -47,7 +63,9 @@ export default function SignIn() {
                 Continue with Microsoft
               </span>
             </button>
+
             <button
+              onClick={async () => await signInDropbox()}
               type="button"
               className="w-full inline-flex items-center justify-center gap-2 border rounded-xl px-4 py-2.5 hover:bg-gray-50 active:scale-[.99] transition"
             >
