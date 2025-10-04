@@ -1,8 +1,17 @@
 "use client";
 
+import {
+  RiDropboxFill,
+  RiGoogleFill,
+  RiImage2Line,
+  RiLinkM,
+  RiLock2Line,
+  RiMailLine,
+  RiMicrosoftFill,
+  RiUser3Line,
+} from "@remixicon/react";
 import { useState } from "react";
 import { authClient } from "@/auth/client";
-import { RiGoogleFill, RiMicrosoftFill, RiDropboxFill, RiMailLine, RiLock2Line, RiUser3Line, RiImage2Line, RiLinkM } from "@remixicon/react";
 
 export default function SignUp() {
   const [form, setForm] = useState({
@@ -26,7 +35,7 @@ export default function SignUp() {
       const { data, error } = await authClient.signUp.email({
         name: form.name,
         email: form.email,
-        password: form.password
+        password: form.password,
       });
       if (error) {
         setMessage(error.message || "Sign up failed");
@@ -46,21 +55,36 @@ export default function SignUp() {
       <div className="w-full max-w-md">
         <div className="bg-white shadow-sm rounded-2xl p-6 sm:p-8">
           <div className="mb-6 text-center">
-            <h1 className="text-2xl font-semibold tracking-tight">Create account</h1>
-            <p className="text-sm text-gray-500 mt-1">Fill in your details or sign up with a provider.</p>
+            <h1 className="text-2xl font-semibold tracking-tight">
+              Create account
+            </h1>
+            <p className="text-sm text-gray-500 mt-1">
+              Fill in your details or sign up with a provider.
+            </p>
           </div>
 
           {/* OAuth Providers */}
           <div className="grid grid-cols-1 gap-3">
-            <button type="button" className="w-full inline-flex items-center justify-center gap-2 border rounded-xl px-4 py-2.5 hover:bg-gray-50 transition">
+            <button
+              type="button"
+              className="w-full inline-flex items-center justify-center gap-2 border rounded-xl px-4 py-2.5 hover:bg-gray-50 transition"
+            >
               <RiGoogleFill className="h-5 w-5" />
               <span className="text-sm font-medium">Sign up with Google</span>
             </button>
-            <button type="button" className="w-full inline-flex items-center justify-center gap-2 border rounded-xl px-4 py-2.5 hover:bg-gray-50 transition">
+            <button
+              type="button"
+              className="w-full inline-flex items-center justify-center gap-2 border rounded-xl px-4 py-2.5 hover:bg-gray-50 transition"
+            >
               <RiMicrosoftFill className="h-5 w-5" />
-              <span className="text-sm font-medium">Sign up with Microsoft</span>
+              <span className="text-sm font-medium">
+                Sign up with Microsoft
+              </span>
             </button>
-            <button type="button" className="w-full inline-flex items-center justify-center gap-2 border rounded-xl px-4 py-2.5 hover:bg-gray-50 transition">
+            <button
+              type="button"
+              className="w-full inline-flex items-center justify-center gap-2 border rounded-xl px-4 py-2.5 hover:bg-gray-50 transition"
+            >
               <RiDropboxFill className="h-5 w-5" />
               <span className="text-sm font-medium">Sign up with Dropbox</span>
             </button>
@@ -79,7 +103,9 @@ export default function SignUp() {
           {/* Sign Up Form */}
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Full Name
+              </label>
               <div className="relative">
                 <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <RiUser3Line className="h-5 w-5 text-gray-400" />
@@ -96,7 +122,9 @@ export default function SignUp() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Email
+              </label>
               <div className="relative">
                 <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <RiMailLine className="h-5 w-5 text-gray-400" />
@@ -113,7 +141,9 @@ export default function SignUp() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Password
+              </label>
               <div className="relative">
                 <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <RiLock2Line className="h-5 w-5 text-gray-400" />
@@ -145,11 +175,19 @@ export default function SignUp() {
 
           {/* Footer */}
           <p className="mt-6 text-center text-sm text-gray-500">
-            Already have an account? <a href="#" className="font-medium text-gray-700 hover:text-gray-900">Sign in</a>
+            Already have an account?{" "}
+            <a
+              href="#"
+              className="font-medium text-gray-700 hover:text-gray-900"
+            >
+              Sign in
+            </a>
           </p>
         </div>
 
-        <p className="text-xs text-center text-gray-400 mt-4">UI wired with authClient.signUp.email</p>
+        <p className="text-xs text-center text-gray-400 mt-4">
+          UI wired with authClient.signUp.email
+        </p>
       </div>
     </div>
   );
